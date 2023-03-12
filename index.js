@@ -19,16 +19,16 @@ app.use(
 );
 //================================//
 //khai báo controller
-const users = require("./src/routers/user.router.js");
-const products = require("./src/routers/product.router.js");
-const invoices = require("./src/routers/invoice.router");
-const statistics = require("./src/routers/statistics.router");
+const users = require("./src/routes/account.router");
+const products = require("./src/routes/product.router");
+const invoices = require("./src/routes/invoice.router");
+// const statistics = require("./src/routes/.router");
 
 //Router
 app.use("/users", users);
 app.use("/products", products);
 app.use("/invoices", invoices);
-app.use("/statistics", statistics);
+// app.use("/statistics", statistics);
 //=================================//
 mongoose.set("strictQuery", true); //trang thái true sẽ tắt cảnh báo trên mongoos 6
 //Connect Database
