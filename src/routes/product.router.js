@@ -1,14 +1,20 @@
 const productController = require("../controllers/productController");
 const router = require("express").Router();
 
+const authenticateToken = require("./authenticateToken");
+
+router
+    .all(authenticateToken)
+    .post("/AddProduct",authenticateToken, productController.addProduct)
+    .get("/getAllAccount",authenticateToken, userController.getAllAccount);
+
+
 //ADD SIZE PRODUCT
 router.post("/AddSizeProduct", productController.addSizeProduct);
 //GET ALL SIZE PRODUCT
 router.get("/GetAllSize", productController.getAllSize);
 //GET ALL PRODUCT
 router.get("/GetAllProduct", productController.getAllProduct);
-//ADD PRODUCT
-router.post("/AddProduct", productController.addProduct);
 //GET SEX
 router.get("/GetAllSex", productController.getAllSex);
 //ADD SEX
